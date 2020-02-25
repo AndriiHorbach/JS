@@ -1,4 +1,4 @@
-import { Rectangle } from './Rectangle';
+import { Rectangle } from './Rectangle.js';
 
 export class Rhombus extends Rectangle {
   constructor(points) {

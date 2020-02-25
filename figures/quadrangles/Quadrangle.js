@@ -1,4 +1,4 @@
-import { Figure } from '../Figure';
+import { Figure } from '../Figure.js';
 
 export class  Quadrangle extends Figure {
   constructor(points) {

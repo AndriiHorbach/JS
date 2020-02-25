@@ -1,4 +1,4 @@
-import { Quadrangle } from './Quadrangle.js.js.js.js';
+import { Quadrangle } from './Quadrangle.js';
 
 export class Trapezium extends Quadrangle {
   

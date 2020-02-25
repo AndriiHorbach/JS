@@ -1,7 +1,6 @@
-import { Rectangle } from './Rectangle';
-import { Rhombus } from './Rhombus';
+import { Rhombus } from './Rhombus.js';
 
-export class Square extends Rhombus, Rectangle {
+export class Square extends Rhombus {
   constructor(points) {
     super(points)
   }

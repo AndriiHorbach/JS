@@ -1,4 +1,4 @@
-import { Quadrangle } from './Quadrangle';
+import { Quadrangle } from './Quadrangle.js';
 
 export class Rectangle extends Quadrangle {
   constructor(points) {
