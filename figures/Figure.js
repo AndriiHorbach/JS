@@ -7,29 +7,27 @@ export class Figure {
     }
     this.points = points;
   }
-
+  
   perimeter() { 
     let perimeter = 0;
-    for (let i = 0; i < this.points.length-1; ++i) {
+    this.points[this.points.length] = this.points[0];
+    for (let i = 0; i < this.points.length-1; i++) {
       perimeter+= sideLength(this.points[i], this.points[i+1])
     }
-
-    let lastSide = sideLength(this.points[0], this.points[this.points.length-1]);
-    perimeter+=lastSide;
     console.log('perimeter is ' + perimeter);
   }
 
   square() { 
     let temp = 0;
-    for (let i = 0; i< this.points.length -1; i++ ) {
-      temp+= points[i].x * this.points[i+1].y - this.points[i].y * this.points[i+1].x;
+    this.points[this.points.length] = this.points[0];
+    for (let i = 0; i < this.points.length-1; i++) {
+      temp+= this.points[i].x * this.points[i+1].y - this.points[i].y * this.points[i+1].x;
     }
-    
-    let square = Math.abs(temp/2);
+    let square = Math.abs(temp)/2;
     console.log('square is ' + square);
   }
 
   welcome() {
-    console.log('this is figure');
+    console.log('this is a figure');
   }
 }
