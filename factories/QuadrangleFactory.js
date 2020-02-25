@@ -11,19 +11,24 @@ export class QuadrangleFactory {
         let a = sideLength(points[0], points[1]);
         let b = sideLength(points[1], points[2]);
         let c = sideLength(points[2], points[3]);
-		let d = sideLength(points[0], points[3]);
+        let d = sideLength(points[3], points[0]);
+        
+        let koef = (point1, point2) => 
+            ((point1.y - point2.y)/(point1.x - point2.x))
 
-		let isTrapezium = (points) => ((points[1].y - points[0].y)/(points[1].x - points[0].x) === (points[3].y - points[2].y)/(points[3].x - points[2].x)
-		|| (points[3].y - points[1].y)/(points[4].x - points[1].x) === (points[2].y - points[1].y)/(points[2].x - points[1].x))
+        let isTrapezium = (points) =>
+            (
+              (Math.abs(koef(points[1], points[2]) - koef(points[0], points[3]))) < 0.0000000001 || (Math.abs(koef(points[0], points[1]) - koef(points[3], points[2]))) < 0.0000000001
+            )
 		
-        if (a===b===c===d)
+        if ( a===b && b ===c && c===d && d===a)
             return new Square(points);
         else if (a + c === b + d)
             return new Rhombus(points);
-		else if (isTrapezium)
-            return new Trapezium(points);
         else if (a*a + b*b === b*b + c*c)
             return new Rectangle(points);
+		else if (isTrapezium)
+            return new Trapezium(points);
         else
             return new Quadrangle(points);
     }
